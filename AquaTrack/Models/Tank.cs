@@ -15,7 +15,7 @@ namespace AquaTrack.Models
         public double VolumeInLiters { get; set; }
 
         [Required]
-        public string WaterType { get; set; } 
+        public string WaterType { get; set; }
 
         public List<Fish> Fish { get; set; } = new List<Fish>();
     }

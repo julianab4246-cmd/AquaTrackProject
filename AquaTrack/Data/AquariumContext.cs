@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using AquaTrack.Models;
+﻿using AquaTrack.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace AquaTrack.Data
 {

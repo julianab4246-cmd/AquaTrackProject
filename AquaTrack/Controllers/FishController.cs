@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using AquaTrack.Data;
+﻿using AquaTrack.Data;
 using AquaTrack.Models;
 using AquaTrack.Services;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace AquaTrack.Controllers
 {

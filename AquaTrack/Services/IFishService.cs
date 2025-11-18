@@ -1,5 +1,5 @@
-﻿using AquaTrack.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using AquaTrack.Models;
 
 namespace AquaTrack.Services
 {
