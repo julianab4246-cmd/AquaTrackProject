@@ -1,4 +1,5 @@
 using AquaTrack.Data;
+using AquaTrack.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +8,8 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<AquariumContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<IFishService, FishService>();
 
 var app = builder.Build();
 
