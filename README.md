@@ -1,3 +1,4 @@
-For this part of the project, I created the data modeling feature for my AquaTrack application. I created the Fish, Tank, and Feeding classes which I put in the models folder. 
-I also created a DbContext class AquariumContext, which i put in the data folder. I added a connection string to the app settings and injected it into Program.cs.
-I ran migration in package manager and updated the database.
+For Week 11, I moved the business logic out of my MVC controllers and into a dedicated service class.
+I created a new folder called Services and added an interface, IFishService, which defines several operations related to fish management. These include calculating a fish’s age in months, determining whether a tank is large enough for a given fish, and filtering fish by tank. I also created a concrete implementation, FishService, which contains the actual logic for these operations. This makes the code easier to maintain and test.
+Next, I registered the service in the dependency injection container in Program.cs. I updated the FishController to use constructor injection and replaced controller level logic with calls to the new service.
+The application now follows cleaner architectural boundaries. controllers manage flow, services handle logic, and the database layer performs persistence. This organization will help this to be easier to build.
