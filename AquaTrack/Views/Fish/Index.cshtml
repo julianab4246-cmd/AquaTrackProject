@@ -1,0 +1,34 @@
+﻿@model IEnumerable<AquaTrack.Models.Fish>
+
+<h2>Fish List</h2>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Add Fish</a>
+</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Species</th>
+            <th>Age</th>
+            <th>Tank</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var fish in Model)
+        {
+            <tr>
+                <td>@fish.Name</td>
+                <td>@fish.Species</td>
+                <td>@fish.Age</td>
+                <td>@fish.Tank?.TankName</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@fish.Id">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@fish.Id">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

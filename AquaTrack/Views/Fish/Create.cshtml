@@ -1,0 +1,30 @@
+﻿@model AquaTrack.Models.Fish
+
+<h2>Add Fish</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Species"></label>
+        <input asp-for="Species" class="form-control" />
+        <span asp-validation-for="Species" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Age"></label>
+        <input asp-for="Age" class="form-control" />
+        <span asp-validation-for="Age" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Tank</label>
+        <select asp-for="TankId" class="form-control" asp-items="new SelectList(ViewBag.Tanks," Id", "TankName" )"></select>
+    </div>
+
+    <button class="btn btn-success" type="submit">Save</button>
+</form>
