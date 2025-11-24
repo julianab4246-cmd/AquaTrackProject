@@ -1,4 +1,4 @@
-For Week 11, I moved the business logic out of my MVC controllers and into a dedicated service class.
-I created a new folder called Services and added an interface, IFishService, which defines several operations related to fish management. These include calculating a fish’s age in months, determining whether a tank is large enough for a given fish, and filtering fish by tank. I also created a concrete implementation, FishService, which contains the actual logic for these operations. This makes the code easier to maintain and test.
-Next, I registered the service in the dependency injection container in Program.cs. I updated the FishController to use constructor injection and replaced controller level logic with calls to the new service.
-The application now follows cleaner architectural boundaries. controllers manage flow, services handle logic, and the database layer performs persistence. This organization will help this to be easier to build.
+For this week, week 12, I implemented a full CRUD (Create, Read, Update, Delete) workflow for Fish in the application. This feature allows the app to list fish, view details, and create or edit fish.
+
+First, I updated the FishController. I also put model validation directly into the Create and Edit actions.
+Next, I added Razor views for Index, Details, Create, and Edit.
