@@ -1,0 +1,14 @@
+﻿@model AquaTrack.Models.Fish
+
+<h2>Are you sure you want to delete this fish?</h2>
+
+<p><strong>Name:</strong> @Model.Name</p>
+<p><strong>Species:</strong> @Model.Species</p>
+<p><strong>Age:</strong> @Model.Age</p>
+<p><strong>Tank:</strong> @Model.Tank?.TankName</p>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button class="btn btn-danger" type="submit">Delete</button>
+    <a class="btn btn-secondary" href="@Url.Action("Index")">Cancel</a>
+</form>

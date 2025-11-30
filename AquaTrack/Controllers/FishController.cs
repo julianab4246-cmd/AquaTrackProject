@@ -81,13 +81,13 @@ namespace AquaTrack.Controllers
         public async Task<IActionResult> Edit(int id, Fish fish)
         {
             if (id != fish.Id)
-                return NotFound();
+                return NotFound(); 
 
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(fish);
+                    _context.Update(fish); 
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -102,7 +102,7 @@ namespace AquaTrack.Controllers
             }
 
             ViewBag.Tanks = _context.Tanks.ToList();
-            return View(fish);
+            return View(fish); 
         }
 
         public async Task<IActionResult> Delete(int id)
@@ -126,11 +126,12 @@ namespace AquaTrack.Controllers
             var fish = await _context.Fish.FindAsync(id);
             if (fish != null)
             {
-                _context.Fish.Remove(fish);
-                await _context.SaveChangesAsync();
+                _context.Fish.Remove(fish); 
+                await _context.SaveChangesAsync(); 
             }
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Index)); 
         }
     }
 }
+
