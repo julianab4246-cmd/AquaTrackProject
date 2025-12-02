@@ -1,4 +1,3 @@
-For this week, week 12, I implemented a full CRUD (Create, Read, Update, Delete) workflow for Fish in the application. This feature allows the app to list fish, view details, and create or edit fish.
-
-First, I updated the FishController. I also put model validation directly into the Create and Edit actions.
-Next, I added Razor views for Index, Details, Create, and Edit.
+For Week 13, I implemented a diagnostics feature that exposes a /healthz endpoint. This endpoint provides the apps readiness and helps diagnose issues quickly without exposing sensitive information. This makes sure that it is reachable and functioning.
+I created a DiagnosticsController that checks whether the application itself is running and whether the database is responding to SQL commands.
+I also updated Program.cs to ensure MVC controller routing is added so the /healthz route is available. For testing, I viewed the endpoint in a browser and intentionally shut down the SQL Server service to confirm that the error response worked as expected.
