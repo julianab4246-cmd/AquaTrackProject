@@ -23,7 +23,9 @@
 
     <div class="form-group">
         <label>Tank</label>
-        <select asp-for="TankId" class="form-control" asp-items="new SelectList(ViewBag.Tanks," Id", "TankName" )"></select>
+        <select asp-for="TankId" class="form-control"
+                asp-items="@(new SelectList(ViewBag.Tanks, "Id", "TankName"))">
+        </select>
     </div>
 
     <button class="btn btn-success" type="submit">Save</button>
