@@ -12,6 +12,12 @@
 {
     <p class="text-danger"><strong>This fish may be too big for its tank!</strong></p>
 }
+<a class="btn btn-success"
+   asp-controller="Feeding"
+   asp-action="Create"
+   asp-route-fishId="@Model.Id">
+    Record Feeding
+</a>
 
 <p>
     <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>

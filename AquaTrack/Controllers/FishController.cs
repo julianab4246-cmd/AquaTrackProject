@@ -10,11 +10,13 @@ namespace AquaTrack.Controllers
     {
         private readonly AquariumContext _context;
         private readonly IFishService _fishService;
+        private readonly ILogger<FishController> _logger;
 
-        public FishController(AquariumContext context, IFishService fishService)
+        public FishController(AquariumContext context, IFishService fishService, ILogger<FishController> logger)
         {
             _context = context;
             _fishService = fishService;
+            _logger = logger;
         }
 
         public async Task<IActionResult> Index()
@@ -28,6 +30,12 @@ namespace AquaTrack.Controllers
 
         public async Task<IActionResult> Details(int id)
         {
+            _logger.LogInformation(
+                "Viewing fish details for fishId={FishId}, requestId={RequestId}",
+                id,
+                HttpContext.TraceIdentifier
+            );
+
             var fish = await _context.Fish
                 .Include(f => f.Tank)
                 .FirstOrDefaultAsync(f => f.Id == id);
