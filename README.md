@@ -1,3 +1,4 @@
-For Week 13, I implemented a diagnostics feature that exposes a /healthz endpoint. This endpoint provides the apps readiness and helps diagnose issues quickly without exposing sensitive information. This makes sure that it is reachable and functioning.
-I created a DiagnosticsController that checks whether the application itself is running and whether the database is responding to SQL commands.
-I also updated Program.cs to ensure MVC controller routing is added so the /healthz route is available. For testing, I viewed the endpoint in a browser and intentionally shut down the SQL Server service to confirm that the error response worked as expected.
+For Week 14, I implemented structured logging in AquaTrack.
+I created a new FeedingController that records feeding events for fish. Within this controller, I injected ILogger<FeedingController> and added structured logs that capture key context fields including fishId, foodType, fedAt, and requestId.
+A success log is created whenever a feeding event is saved. I updated the FishController to log whenever a user views the details page for any fish. 
+I also added a new view Views/Feeding/Create.cshtml allowing users to record feeding events.
