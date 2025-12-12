@@ -12,83 +12,34 @@ Publish	Code
 Runtime Stack	.NET 8 (LTS)
 Operating System	Windows or Linux
 Region	Same as resource group
-Resource Group	AquaTrack-RG
-Then,click Review, Create, and hit Create
+Resource Group	AquaTrack-RG then,click Review, Create, and hit Create
 
 Step 3. Provision the Azure SQL Database
-
-AquaTrack requires a database for the Fish, Tank, and Feeding tables.
-
+Create database for AquaTrack for the Fish, Tank, and Feeding tables.
 From the Azure Portal, click Create a resource
-
 Choose SQL Database
-
 Set:
-
 Database name: AquaTrackDB
-
 Resource group: AquaTrack-RG
-
 Create a SQL Server:
-
 Server name: aquatrack-sqlserver
-
 Authentication: SQL Auth (username + password)
-
-Region: same as App Service
-
+Region:
 Choose the Basic tier
-
 After creation, open the database → Connection strings
-
 Copy the ADO.NET string (to be used later in App Settings)
 
-4. Configure Environment Variables / Secrets
+Step 4. Configure Environment Variables / Secrets
 
-Inside your App Service:
+Inside the App Service go to Configuration
+Under Application Settings, add: ASPNETCORE_ENVIRONMENT = Production
+Add the connection string: ConnectionStrings:AquariumContext = <your Azure SQL connection string>
+Now, save and restart the App Service
 
-Go to Configuration
-
-Under Application Settings, add:
-
-ASPNETCORE_ENVIRONMENT = Production
-
-
-Add the connection string:
-
-ConnectionStrings:AquariumContext = <your Azure SQL connection string>
-
-
-Save and restart the App Service
-
-5. Publish AquaTrack Using Visual Studio
-
-Open Visual Studio
-
-Right-click the AquaTrack project → Publish
-
-Choose Azure → Azure App Service
-
-Sign in and select:
-
-Resource group: AquaTrack-RG
-
+Step 5. Publish AquaTrack Using Visual Studio
+Open Visual Studio and click the AquaTrack project and then Publish
+Now, choose Azure and Azure App Service
+select: Resource group: AquaTrack-RG
 App: aquatrack-appservice
-
-Click Finish
-
-Click Publish
-
-Visual Studio will build the project, package it, upload it, and launch the site.
-
-6. Publish Using Azure CLI (Alternative)
-
-If publishing manually:
-
-az webapp up \
-  --name aquatrack-appservice \
-  --resource-group AquaTrack-RG \
-  --runtime "DOTNETCORE:8.0"
-
-
-This sends the compiled AquaTrack app directly to Azure.
+Click Finish and publish
+Visual Studio will build and launch
