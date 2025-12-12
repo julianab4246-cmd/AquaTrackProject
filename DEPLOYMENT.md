@@ -23,7 +23,7 @@ Database name: AquaTrackDB
 Resource group: AquaTrack-RG
 Create a SQL Server:
 Server name: aquatrack-sqlserver
-Authentication: SQL Auth (username + password)
+Authentication: SQL Auth
 Region:
 Choose the Basic tier
 After creation, open the database → Connection strings
