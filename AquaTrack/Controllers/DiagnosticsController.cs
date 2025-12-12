@@ -18,7 +18,6 @@ namespace AquaTrack.Controllers
         public async Task<IActionResult> HealthCheck()
         {
             var result = new Dictionary<string, object>();
-
             result["applicationStatus"] = "OK";
 
             try
@@ -28,17 +27,11 @@ namespace AquaTrack.Controllers
             }
             catch (Exception ex)
             {
-                result["database"] = new
-                {
-                    status = "ERROR",
-                    message = ex.Message
-                };
-
+                result["database"] = new { status = "ERROR", message = ex.Message };
                 return StatusCode(503, result);
             }
 
             result["timestamp"] = DateTime.UtcNow;
-
             return Ok(result);
         }
     }

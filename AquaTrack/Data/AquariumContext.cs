@@ -1,13 +1,14 @@
 ﻿using AquaTrack.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Reflection.Emit;
 
 namespace AquaTrack.Data
 {
     public class AquariumContext : DbContext
     {
-        public AquariumContext(DbContextOptions<AquariumContext> options) : base(options)
-        {
-        }
+        public AquariumContext(DbContextOptions<AquariumContext> options)
+            : base(options) { }
 
         public DbSet<Fish> Fish { get; set; }
         public DbSet<Tank> Tanks { get; set; }
